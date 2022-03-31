@@ -1,17 +1,22 @@
 package warehouse.inneroperationscore.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class TypeProduct {
+@AllArgsConstructor
+public class ProductEntity {
 
     private Long id;
 
+    private String productType;
+
     private String name;
 
-    public TypeProduct(String name) {
-        this.name = name;
-    }
+    private Integer price;
+
+    private Long count;
+
 }
