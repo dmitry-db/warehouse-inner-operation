@@ -7,13 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductDto {
+public class NomenclatureDto {
 
     private Long id;
 
-    private Long typeId;
-
-    private String name;
-
-    private Double price;
+    private Long count;
 }
