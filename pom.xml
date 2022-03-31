@@ -20,9 +20,9 @@
 <!--        <module>dto</module>-->
 <!--        <module>core-api</module>-->
 <!--        <module>utils</module>-->
-<!--        <module>core</module>-->
         <module>dependency-management-bom</module>
-        <module>inner-operations-dto</module>
+        <module>dto</module>
+        <module>core</module>
     </modules>
 
     <dependencies>
