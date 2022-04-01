@@ -36,9 +36,6 @@ public class SaleController {
                     count, productDtoInWarehouse.getCount());
             return false;
         }
-        boolean answer = saleService.saleProductByNomenclatureId(id, count);
-        Constants.addSum(count * productDtoInWarehouse.getPrice());
-        System.out.println(Constants.getProfitOnDay());
-        return answer;
+        return saleService.saleProductByNomenclatureId(id, count);
     }
 }

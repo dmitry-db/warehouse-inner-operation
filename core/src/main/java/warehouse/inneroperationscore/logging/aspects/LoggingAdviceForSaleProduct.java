@@ -8,6 +8,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 import warehouse.inneroperations.ProductDto;
+import warehouse.inneroperationscore.constants.Constants;
 import warehouse.inneroperationscore.service.interfaces.ProductService;
 
 @Slf4j
@@ -29,14 +30,18 @@ public class LoggingAdviceForSaleProduct {
     public Object productControllerMethod(ProceedingJoinPoint pjp) throws JsonProcessingException {
         Object[] args = pjp.getArgs();
         ProductDto productDto = productService.findByNomenclatureId((Long) args[0]);
-        log.info("Продано товара тип - {}, имя - {}: в количестве - {}",
-                productDto.getProductType(), productDto.getProductName(), productDto.getCount());
-
         Object object = null;
         try {
             object = pjp.proceed();
         } catch (Throwable e) {
             e.printStackTrace();
+        }
+        if ((boolean) object) {
+            Long count = (Long) args[1];
+            log.info("Продано товара тип - {}, имя - {}: в количестве - {}",
+                    productDto.getProductType(), productDto.getProductName(), count);
+            Constants.addSum(count * productDto.getPrice());
+            System.out.println(Constants.getProfitOnDay());
         }
         return object;
     }
