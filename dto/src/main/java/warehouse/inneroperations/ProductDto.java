@@ -11,11 +11,11 @@ public class ProductDto {
 
     private Long id;
 
-    private Long typeId;
+    private String productType;
 
     private String name;
 
-    private Double price;
+    private Integer price;
 
     private Long count;
 }

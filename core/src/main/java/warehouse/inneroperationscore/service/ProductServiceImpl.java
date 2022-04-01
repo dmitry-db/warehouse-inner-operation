@@ -21,12 +21,22 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductEntity findByTypeAndName(String type, String name) {
-        return productRepository.findByTypeAndName(type, name);
+    public ProductEntity findByName(String name) {
+        return productRepository.findByName(name);
     }
 
     @Override
     public ProductEntity findById(Long id) {
         return productRepository.findById(id);
+    }
+
+    @Override
+    public boolean updateById(ProductEntity productEntity) {
+        return productRepository.updateById(productEntity);
+    }
+
+    @Override
+    public Boolean deleteByName(String name) {
+        return productRepository.deleteByName(name);
     }
 }
