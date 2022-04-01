@@ -40,9 +40,16 @@ create table user_roles (
 
 CREATE SEQUENCE log_sequence;
 create table log (
-                     id BIGINT PRIMARY KEY NOT NULL default nextval('log_sequence'),
-                     type varchar(255) not null,
-                     date_time date not null,
-                     name_method varchar(255) not null,
-                     full_name_class varchar(255) not null
+    id BIGINT PRIMARY KEY NOT NULL default nextval('log_sequence'),
+    type varchar(255) not null,
+    date_time date not null,
+    name_method varchar(255) not null,
+    full_name_class varchar(255) not null
+);
+
+CREATE SEQUENCE profit_seq;
+create table profit_on_day (
+    id BIGINT PRIMARY KEY NOT NULL default nextval('profit_seq'),
+    day date not null,
+    profit BIGINT NOT NULL
 );
