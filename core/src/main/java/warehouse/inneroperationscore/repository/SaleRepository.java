@@ -8,6 +8,6 @@ import org.apache.ibatis.annotations.Update;
 public interface SaleRepository {
 
     @Update("update products set count = count - #{count} " +
-            "where name = #{name}")
-    boolean saleProduct(@Param("name") String name, @Param("count") Long count);
+            "where nomenclature_id = #{id}")
+    boolean saleProduct(@Param("id") Long id, @Param("count") Long count);
 }

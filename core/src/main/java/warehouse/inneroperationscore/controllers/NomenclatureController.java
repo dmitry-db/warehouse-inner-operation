@@ -1,5 +1,6 @@
 package warehouse.inneroperationscore.controllers;
 
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import warehouse.inneroperations.NomenclatureDto;
 import warehouse.inneroperationscore.model.NomenclatureEntity;
 import warehouse.inneroperationscore.service.interfaces.NomenclatureService;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/nomenclature")
 public class NomenclatureController {
@@ -26,17 +28,25 @@ public class NomenclatureController {
 
     @PostMapping("/save")
     public int saveNomenclature(@RequestBody NomenclatureEntity nomenclatureEntity) {
-        return nomenclatureService.insert(nomenclatureEntity);
+        int answer =  nomenclatureService.insert(nomenclatureEntity);
+        log.info("В номенклатуру добавлен новый товар. Тип товара - {}, имя товара - {}",
+                nomenclatureEntity.getProductType(), nomenclatureEntity.getProductName());
+        return answer;
     }
 
     @GetMapping("/{id}")
     public NomenclatureDto findNomenclatureById(@PathVariable Long id) {
-        System.out.println(nomenclatureService.findById(id));
         return modelMapper.map(nomenclatureService.findById(id), NomenclatureDto.class);
     }
 
     @DeleteMapping("/{id}")
     public boolean deleteNomenclatureById(@PathVariable Long id) {
-        return nomenclatureService.deleteById(id);
+        NomenclatureEntity nomenclatureEntity = nomenclatureService.findById(id);
+        boolean answer = nomenclatureService.deleteById(id);
+        if (nomenclatureEntity != null) {       //вернись сюда
+            log.info("Из номенклатуры был удален товар. Тип товара - {}, имя товара - {}",
+                    nomenclatureEntity.getProductType(), nomenclatureEntity.getProductName());
+        }
+        return answer;
     }
 }

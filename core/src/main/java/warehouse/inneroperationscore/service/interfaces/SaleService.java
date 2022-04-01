@@ -2,5 +2,5 @@ package warehouse.inneroperationscore.service.interfaces;
 
 public interface SaleService {
 
-    boolean saleProduct(String name, Long count);
+    boolean saleProductByNomenclatureId(Long id, Long count);
 }

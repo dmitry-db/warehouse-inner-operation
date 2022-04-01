@@ -14,7 +14,7 @@ public class SaleServiceImpl implements SaleService {
     }
 
     @Override
-    public boolean saleProduct(String name, Long count) {
-        return saleRepository.saleProduct(name, count);
+    public boolean saleProductByNomenclatureId(Long id, Long count) {
+        return saleRepository.saleProduct(id, count);
     }
 }

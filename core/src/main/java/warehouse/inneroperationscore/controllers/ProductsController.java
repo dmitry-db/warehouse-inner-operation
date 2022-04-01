@@ -43,25 +43,29 @@ public class ProductsController {
     public void saveProduct(@RequestBody ProductDto productDto) {
         ProductEntity productEntity = modelMapper.map(productDto, ProductEntity.class);
         productService.save(productEntity);
-//        log.info("В базу добавлен новый продукт тип - {}, имя продукта - {}," +
-//                " стоимость - {}, количество {}", productEntity.getProductType(),
-//                productEntity.getName(), productEntity.getPrice(), productEntity.getCount());
+        log.info("В базу добавлен новый продукт тип - {}, имя продукта - {}," +
+                " стоимость - {}, количество {}", productDto.getProductType(),
+                productDto.getProductName(), productDto.getPrice(), productDto.getCount());
     }
 
 
     @PatchMapping
     public boolean updateProductById(@RequestBody ProductEntity productEntity) {
+        ProductDto productDto = productService.findByNomenclatureId(productEntity.getNomenclatureId());
         boolean answer = productService.updateByNomenclatureId(productEntity);
-//        log.info("В базе обновлен продукт тип - {}, имя продукта - {}," +
-//                        " новые значения: стоимость - {}, количество {}", productEntity.getProductType(),
-//                productEntity.getName(), productEntity.getPrice(), productEntity.getCount());
+        log.info("В базе обновлен продукт тип - {}, имя продукта - {}," +
+                        " новые значения: стоимость - {}, количество {}", productDto.getProductType(),
+                productDto.getProductName(), productEntity.getPrice(), productEntity.getCount());
         return answer;
     }
 
     @DeleteMapping("/{id}")
     private boolean deleteProductByNomenclatureId(@PathVariable Long id) {
+        ProductDto productDto = productService.findByNomenclatureId(id);
         boolean answer = productService.deleteByNomenclatureId(id);
-//        log.info("Из базы удален продукт продукт. Имя продукта - {}", name);
+        log.info("Из базы удален продукт продукт. Тип продукта - {}, имя продукта - {}" +
+                ", количество которого на складе {}", productDto.getProductType(),
+                productDto.getProductName(), productDto.getCount());
         return answer;
     }
 }
