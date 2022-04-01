@@ -9,12 +9,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductEntity extends AbstractEntity{
+public class NomenclatureEntity extends AbstractEntity{
 
-    private Long nomenclatureId;
+    private String productType;
 
-    private Double price;
-
-    private Long count;
-
+    private String productName;
 }

@@ -1,0 +1,14 @@
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<!--<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >-->
+<!--<mapper namespace="warehouse.inneroperationscore.repository.NomenclatureRepository">-->
+
+<!--    <resultMap id="nomenclatureEntity" type="warehouse.inneroperationscore.model.NomenclatureEntity" autoMapping="true">-->
+<!--        <id property="id" column="id" jdbcType="BIGINT"/>-->
+<!--    </resultMap>-->
+
+<!--    <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id">-->
+<!--        INSERT INTO nomenclature (product_type, product_name) VALUES-->
+<!--            (#{nomenclature.productType, jdbcType=VARCHAR}, #{nomenclature.productName, jdbcType=VARCHAR})-->
+<!--    </insert>-->
+
+<!--</mapper>-->

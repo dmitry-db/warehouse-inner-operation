@@ -14,23 +14,21 @@ import java.util.List;
 @Mapper
 public interface ProductRepository {
 
-    @Select("select * from products where name = #{name}")
-    ProductEntity findByName(String name);
-
-    @Insert("insert into products (product_type, name, price, count) " +
-            "values(#{productType}, #{name}, #{price}, #{count})")
-    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
-    int insert(ProductEntity productEntity);
-
     @Select("select * from products where id = #{id}")
     ProductEntity findById(Long id);
 
-//    int insertAll(@Param("products") List<ProductEntity> productEntities);
-//
-    @Update("update products set price = #{price}, count = #{count} " +
-        "where id = #{id}")
-    Boolean updateById(ProductEntity productEntity);
+    @Select("select * from products where nomenclature_id = #{id}")
+    ProductEntity findByNomenclatureId(Long id);
 
-    @Delete("delete from products where name = #{name}")
-    Boolean deleteByName(String name);
+    @Insert("insert into products (nomenclature_id, price, count) " +
+            "values(#{nomenclatureId}, #{price}, #{count})")
+    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
+    int insert(ProductEntity productEntity);
+
+    @Update("update products set price = #{price}, count = #{count} " +
+        "where nomenclature_id = #{nomenclatureId}")
+    Boolean updateByNomenclatureId(ProductEntity productEntity);
+
+    @Delete("delete from products where nomenclature_id = #{id}")
+    Boolean deleteByNomenclatureId(Long id);
 }

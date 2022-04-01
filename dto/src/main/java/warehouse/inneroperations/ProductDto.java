@@ -11,11 +11,9 @@ public class ProductDto {
 
     private Long id;
 
-    private String productType;
+    private Long nomenclatureId;
 
-    private String name;
-
-    private Integer price;
+    private Double price;
 
     private Long count;
 }

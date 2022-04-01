@@ -8,11 +8,11 @@ public interface ProductService {
 
     void save(ProductEntity productEntity);
 
-    ProductEntity findByName(String name);
+    ProductEntity findByNomenclatureId(Long id);
 
     ProductEntity findById(Long id);
 
-    boolean updateById(ProductEntity productEntity);
+    boolean updateByNomenclatureId(ProductEntity productEntity);
 
-    Boolean deleteByName(String name);
+    Boolean deleteByNomenclatureId(Long id);
 }

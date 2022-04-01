@@ -29,38 +29,39 @@ public class ProductsController {
         this.productService = productService;
     }
 
-    @GetMapping
-    public ProductDto findProductById(@RequestParam("name") String name) {
-        return modelMapper.map(productService.findByName(name), ProductDto.class);
+    @GetMapping("/{id}")
+    public ProductDto findProductById(@PathVariable Long id) {
+        return modelMapper.map(productService.findById(id), ProductDto.class);
+    }
+
+    @GetMapping("/nomenclature/{id}")
+    public ProductDto findProductByNomenclatureId(@PathVariable Long id) {
+        return modelMapper.map(productService.findByNomenclatureId(id), ProductDto.class);
     }
 
     @PostMapping("/save")
     public void saveProduct(@RequestBody ProductDto productDto) {
         ProductEntity productEntity = modelMapper.map(productDto, ProductEntity.class);
         productService.save(productEntity);
-        log.info("В базу добавлен новый продукт тип - {}, имя продукта - {}," +
-                " стоимость - {}, количество {}", productEntity.getProductType(),
-                productEntity.getName(), productEntity.getPrice(), productEntity.getCount());
+//        log.info("В базу добавлен новый продукт тип - {}, имя продукта - {}," +
+//                " стоимость - {}, количество {}", productEntity.getProductType(),
+//                productEntity.getName(), productEntity.getPrice(), productEntity.getCount());
     }
 
-    @GetMapping("/{id}")
-    public ProductDto findProductById(@PathVariable Long id) {
-        return modelMapper.map(productService.findById(id), ProductDto.class);
-    }
 
     @PatchMapping
     public boolean updateProductById(@RequestBody ProductEntity productEntity) {
-        boolean answer = productService.updateById(productEntity);
-        log.info("В базе обновлен продукт тип - {}, имя продукта - {}," +
-                        " новые значения: стоимость - {}, количество {}", productEntity.getProductType(),
-                productEntity.getName(), productEntity.getPrice(), productEntity.getCount());
+        boolean answer = productService.updateByNomenclatureId(productEntity);
+//        log.info("В базе обновлен продукт тип - {}, имя продукта - {}," +
+//                        " новые значения: стоимость - {}, количество {}", productEntity.getProductType(),
+//                productEntity.getName(), productEntity.getPrice(), productEntity.getCount());
         return answer;
     }
 
-    @DeleteMapping("/{name}")
-    private boolean deleteProductByName(@PathVariable String name) {
-        boolean answer = productService.deleteByName(name);
-        log.info("Из базы удален продукт продукт. Имя продукта - {}", name);
+    @DeleteMapping("/{id}")
+    private boolean deleteProductByNomenclatureId(@PathVariable Long id) {
+        boolean answer = productService.deleteByNomenclatureId(id);
+//        log.info("Из базы удален продукт продукт. Имя продукта - {}", name);
         return answer;
     }
 }
