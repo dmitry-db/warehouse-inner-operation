@@ -6,7 +6,6 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import warehouse.inneroperationscore.security.model.Role;
-import warehouse.inneroperationscore.security.model.UserEntity;
 
 import java.util.List;
 

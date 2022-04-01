@@ -3,7 +3,6 @@ package warehouse.inneroperationscore.repository;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
-import warehouse.inneroperationscore.model.ProductEntity;
 import warehouse.inneroperationscore.model.ProfitEntity;
 
 @Mapper

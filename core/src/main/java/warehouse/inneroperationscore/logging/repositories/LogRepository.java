@@ -4,7 +4,6 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import warehouse.inneroperationscore.logging.model.LogEntity;
-import warehouse.inneroperationscore.model.ProductEntity;
 
 @Mapper
 public interface LogRepository {

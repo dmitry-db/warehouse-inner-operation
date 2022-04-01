@@ -2,15 +2,11 @@ package warehouse.inneroperationscore.controllers;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import warehouse.inneroperations.ProductDto;
-import warehouse.inneroperationscore.constants.Constants;
 import warehouse.inneroperationscore.logging.annotation.Loggable;
-import warehouse.inneroperationscore.model.ProfitEntity;
 import warehouse.inneroperationscore.service.interfaces.ProductService;
 import warehouse.inneroperationscore.service.interfaces.SaleService;
 
