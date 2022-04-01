@@ -31,7 +31,7 @@ public class ProductsController {
 
     @GetMapping("/{id}")
     public ProductDto findProductById(@PathVariable Long id) {
-        return modelMapper.map(productService.findById(id), ProductDto.class);
+        return productService.findById(id);
     }
 
     @GetMapping("/nomenclature/{id}")

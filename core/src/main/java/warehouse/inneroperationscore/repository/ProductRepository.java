@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import warehouse.inneroperations.ProductDto;
 import warehouse.inneroperationscore.model.ProductEntity;
 
 import java.util.List;
@@ -14,11 +15,21 @@ import java.util.List;
 @Mapper
 public interface ProductRepository {
 
-    @Select("select * from products where id = #{id}")
-    ProductEntity findById(Long id);
+    @Select("select p.id, p.nomenclature_id," +
+            "n.product_type, n.product_name," +
+            "p.price, p.count " +
+            "from products as p " +
+            "inner join nomenclature as n on n.id = p.nomenclature_id" +
+            " where p.id = #{id}")
+    ProductDto findById(Long id);
 
-    @Select("select * from products where nomenclature_id = #{id}")
-    ProductEntity findByNomenclatureId(Long id);
+    @Select("select p.id, p.nomenclature_id," +
+            "n.product_type, n.product_name," +
+            "p.price, p.count " +
+            "from products as p " +
+            "inner join nomenclature as n on n.id = p.nomenclature_id" +
+            " where p.nomenclature_id = #{id}")
+    ProductDto findByNomenclatureId(Long id);
 
     @Insert("insert into products (nomenclature_id, price, count) " +
             "values(#{nomenclatureId}, #{price}, #{count})")

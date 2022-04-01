@@ -21,12 +21,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductEntity findById(Long id) {
+    public ProductDto findById(Long id) {
         return productRepository.findById(id);
     }
 
     @Override
-    public ProductEntity findByNomenclatureId(Long id) {
+    public ProductDto findByNomenclatureId(Long id) {
         return productRepository.findByNomenclatureId(id);
     }
 

@@ -8,9 +8,9 @@ public interface ProductService {
 
     void save(ProductEntity productEntity);
 
-    ProductEntity findByNomenclatureId(Long id);
+    ProductDto findByNomenclatureId(Long id);
 
-    ProductEntity findById(Long id);
+    ProductDto findById(Long id);
 
     boolean updateByNomenclatureId(ProductEntity productEntity);
 
