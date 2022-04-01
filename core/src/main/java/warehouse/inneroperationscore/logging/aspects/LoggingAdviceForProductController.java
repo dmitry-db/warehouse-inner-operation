@@ -21,7 +21,7 @@ public class LoggingAdviceForProductController {
         this.productService = productService;
     }
 
-    @Pointcut("execution(public * warehouse.inneroperationscore.controllers.ProductsController.*(..))")
+    @Pointcut("execution(public * warehouse.inneroperationscore.controllers.warehouse.ProductsController.*(..))")
     public void productMethod() {
     }
 

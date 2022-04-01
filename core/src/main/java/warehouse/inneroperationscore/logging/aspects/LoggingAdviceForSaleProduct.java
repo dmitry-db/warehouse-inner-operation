@@ -22,7 +22,7 @@ public class LoggingAdviceForSaleProduct {
         this.productService = productService;
     }
 
-    @Pointcut("execution(public * warehouse.inneroperationscore.controllers.SaleController.*(..))")
+    @Pointcut("execution(public * warehouse.inneroperationscore.controllers.sale.SaleController.*(..))")
     public void saleMethod() {
     }
 

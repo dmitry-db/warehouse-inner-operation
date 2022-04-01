@@ -1,4 +1,4 @@
-package warehouse.inneroperationscore.controllers;
+package warehouse.inneroperationscore.controllers.security;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
