@@ -1,9 +1,11 @@
 package warehouse.inneroperationscore.controllers;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import warehouse.inneroperations.ProductDto;
 import warehouse.inneroperationscore.constants.Constants;
@@ -26,16 +28,16 @@ public class SaleController {
         this.productService = productService;
     }
 
-    @PatchMapping
-    public boolean saleProductByNomenclatureId(@RequestBody ProductDto productDto) {
-        ProductDto productDtoInWarehouse = productService.findByNomenclatureId(productDto.getNomenclatureId());
-        if (productDtoInWarehouse.getCount() < productDto.getCount()) {
+    @GetMapping
+    public boolean saleProductByNomenclatureId(@RequestParam("id") Long id, @RequestParam("count") Long count) {
+        ProductDto productDtoInWarehouse = productService.findByNomenclatureId(id);
+        if (productDtoInWarehouse.getCount() < count) {
             log.warn("Не хватает количества товара на слкаде. В покупке - {}, на складе - {}",          // можно в будущем обработать с помощью exceptionHandler
-                    productDto.getCount(), productDtoInWarehouse.getCount());
+                    count, productDtoInWarehouse.getCount());
             return false;
         }
-        boolean answer = saleService.saleProductByNomenclatureId(productDto);
-        Constants.addSum(productDto.getCount() * productDtoInWarehouse.getPrice());
+        boolean answer = saleService.saleProductByNomenclatureId(id, count);
+        Constants.addSum(count * productDtoInWarehouse.getPrice());
         System.out.println(Constants.getProfitOnDay());
         return answer;
     }

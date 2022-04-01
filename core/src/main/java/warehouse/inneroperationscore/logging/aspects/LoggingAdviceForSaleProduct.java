@@ -8,11 +8,18 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 import warehouse.inneroperations.ProductDto;
+import warehouse.inneroperationscore.service.interfaces.ProductService;
 
 @Slf4j
 @Aspect
 @Component
 public class LoggingAdviceForSaleProduct {
+
+    private final ProductService productService;
+
+    public LoggingAdviceForSaleProduct(ProductService productService) {
+        this.productService = productService;
+    }
 
     @Pointcut("execution(public * warehouse.inneroperationscore.controllers.SaleController.*(..))")
     public void saleMethod() {
@@ -21,7 +28,7 @@ public class LoggingAdviceForSaleProduct {
     @Around("saleMethod()")
     public Object productControllerMethod(ProceedingJoinPoint pjp) throws JsonProcessingException {
         Object[] args = pjp.getArgs();
-        ProductDto productDto = (ProductDto) args[0];
+        ProductDto productDto = productService.findByNomenclatureId((Long) args[0]);
         log.info("Продано товара тип - {}, имя - {}: в количестве - {}",
                 productDto.getProductType(), productDto.getProductName(), productDto.getCount());
 
