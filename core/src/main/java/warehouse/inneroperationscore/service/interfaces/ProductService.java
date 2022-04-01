@@ -1,6 +1,5 @@
 package warehouse.inneroperationscore.service.interfaces;
 
-import org.apache.ibatis.annotations.Param;
 import warehouse.inneroperations.ProductDto;
 import warehouse.inneroperationscore.model.ProductEntity;
 

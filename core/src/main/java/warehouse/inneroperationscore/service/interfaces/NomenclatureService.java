@@ -1,8 +1,6 @@
 package warehouse.inneroperationscore.service.interfaces;
 
-import org.apache.ibatis.annotations.Param;
 import warehouse.inneroperationscore.model.NomenclatureEntity;
-import warehouse.inneroperationscore.model.ProductEntity;
 
 public interface NomenclatureService {
 

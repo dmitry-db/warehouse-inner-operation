@@ -1,9 +1,7 @@
 package warehouse.inneroperationscore.service;
 
-
 import org.springframework.stereotype.Service;
 import warehouse.inneroperationscore.model.NomenclatureEntity;
-import warehouse.inneroperationscore.model.ProductEntity;
 import warehouse.inneroperationscore.repository.NomenclatureRepository;
 import warehouse.inneroperationscore.service.interfaces.NomenclatureService;
 

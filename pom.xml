@@ -16,10 +16,7 @@
     <description>Сервис для внутренних операций(добавление на склад, удаление со склада)</description>
 
     <modules>
-<!--        <module>dependency-management-bom</module>-->
-<!--        <module>dto</module>-->
-<!--        <module>core-api</module>-->
-<!--        <module>utils</module>-->
+        <module>migration</module>
         <module>dependency-management-bom</module>
         <module>dto</module>
         <module>core</module>

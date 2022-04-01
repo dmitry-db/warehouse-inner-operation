@@ -3,7 +3,6 @@ package warehouse.inneroperationscore.security.repositories;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import warehouse.inneroperationscore.security.model.Role;
 
