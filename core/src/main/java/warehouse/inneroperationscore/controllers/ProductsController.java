@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import warehouse.inneroperations.ProductDto;
+import warehouse.inneroperationscore.logging.annotation.Loggable;
 import warehouse.inneroperationscore.model.ProductEntity;
 import warehouse.inneroperationscore.service.interfaces.ProductService;
 
 @Slf4j
+@Loggable
 @RestController
 @RequestMapping("/api/products")
 public class ProductsController {

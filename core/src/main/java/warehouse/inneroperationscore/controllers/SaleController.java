@@ -6,9 +6,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import warehouse.inneroperations.ProductDto;
+import warehouse.inneroperationscore.logging.annotation.Loggable;
 import warehouse.inneroperationscore.service.interfaces.SaleService;
 
 @Slf4j
+@Loggable
 @RestController
 @RequestMapping("/api/sales")
 public class SaleController {

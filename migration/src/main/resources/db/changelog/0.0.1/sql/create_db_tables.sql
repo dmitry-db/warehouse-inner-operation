@@ -36,4 +36,13 @@ create table user_roles (
     PRIMARY KEY (user_id, roles_id),
     foreign key (user_id) references users(id),
     foreign key (roles_id) references roles(id)
-)
+);
+
+CREATE SEQUENCE log_sequence;
+create table log (
+                     id BIGINT PRIMARY KEY NOT NULL default nextval('log_sequence'),
+                     type varchar(255) not null,
+                     date_time date not null,
+                     name_method varchar(255) not null,
+                     full_name_class varchar(255) not null
+);

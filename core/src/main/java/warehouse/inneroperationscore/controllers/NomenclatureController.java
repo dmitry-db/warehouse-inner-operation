@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import warehouse.inneroperations.NomenclatureDto;
+import warehouse.inneroperationscore.logging.annotation.Loggable;
 import warehouse.inneroperationscore.model.NomenclatureEntity;
 import warehouse.inneroperationscore.service.interfaces.NomenclatureService;
 
 @Slf4j
+@Loggable
 @RestController
 @RequestMapping("/api/nomenclature")
 public class NomenclatureController {
