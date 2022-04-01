@@ -20,7 +20,6 @@
         <module>dependency-management-bom</module>
         <module>dto</module>
         <module>core</module>
-        <module>migration</module>
     </modules>
 
     <dependencies>

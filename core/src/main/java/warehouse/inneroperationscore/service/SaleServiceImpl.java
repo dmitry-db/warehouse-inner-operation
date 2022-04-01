@@ -1,6 +1,7 @@
 package warehouse.inneroperationscore.service;
 
 import org.springframework.stereotype.Service;
+import warehouse.inneroperations.ProductDto;
 import warehouse.inneroperationscore.repository.SaleRepository;
 import warehouse.inneroperationscore.service.interfaces.SaleService;
 
@@ -14,7 +15,7 @@ public class SaleServiceImpl implements SaleService {
     }
 
     @Override
-    public boolean saleProductByNomenclatureId(Long id, Long count) {
-        return saleRepository.saleProduct(id, count);
+    public boolean saleProductByNomenclatureId(ProductDto productDto) {
+        return saleRepository.saleProduct(productDto);
     }
 }

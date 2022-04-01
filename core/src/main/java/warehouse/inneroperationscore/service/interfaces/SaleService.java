@@ -1,6 +1,8 @@
 package warehouse.inneroperationscore.service.interfaces;
 
+import warehouse.inneroperations.ProductDto;
+
 public interface SaleService {
 
-    boolean saleProductByNomenclatureId(Long id, Long count);
+    boolean saleProductByNomenclatureId(ProductDto productDto);
 }
