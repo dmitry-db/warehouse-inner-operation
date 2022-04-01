@@ -35,7 +35,7 @@ public interface UserSecurityRepository {
     Boolean updateUser(UserEntity user);
 
     @Delete("delete from users where id = #{id}")
-    boolean deletePerson(UserEntity user);
+    boolean deleteUser(UserEntity user);
 
     @Select("select * from roles " +
             "where id IN (select roles_id from user_roles " +

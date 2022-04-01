@@ -56,14 +56,13 @@ public class UserSecurityServiceImpl implements UserSecurityService {
 
     @Override
     public boolean deleteUser(Long id) {
-        return userSecurityRepository.deletePerson(findUserById(id));
+        return userSecurityRepository.deleteUser(findUserById(id));
     }
 
     @Override
     public Set<Role> getListRoles(Long id) {
         return userSecurityRepository.getListRoles(id);
     }
-
 
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {

@@ -1,10 +1,12 @@
 package warehouse.inneroperationscore.security.repositories;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import warehouse.inneroperationscore.security.model.Role;
+import warehouse.inneroperationscore.security.model.UserEntity;
 
 import java.util.List;
 
@@ -24,4 +26,7 @@ public interface RoleRepository {
             "values(#{id}, #{name})")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     int saveRole(Role role);
+
+    @Delete("delete from roles where id = #{id}")
+    boolean deleteRoleById(Long id);
 }
